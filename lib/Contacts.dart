@@ -11,44 +11,30 @@ class _ContactsState extends State<Contacts> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: CustomScrollView(
-      slivers: <Widget>[
-        SliverAppBar(
-          backgroundColor: Colors.white,
-          expandedHeight: 200.0,
-          floating: false,
-          pinned: true,
-          flexibleSpace: FlexibleSpaceBar(background: ProfileCard()),
+      body: NestedScrollView(
+        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+          return <Widget>[
+            SliverAppBar(
+                expandedHeight: 300.0,
+                floating: false,
+                pinned: true,
+                flexibleSpace: FlexibleSpaceBar(
+                  centerTitle: true,
+                  title: Text("Contacts",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16.0,
+                      )),
+                  background: Container(
+                    color: Colors.grey[900],
+                  ),
+                )),
+          ];
+        },
+        body: Center(
+          child: Text("Sample Text"),
         ),
-        SliverList(
-          delegate: SliverChildListDelegate(
-            [SliverListDetail()],
-          ),
-        ),
-        SliverFillRemaining(child: LiveTrading(crypto))
-      ],
-    ));
-  }
-
-  Widget SliverListDetail() {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 10, 20, 5),
-      child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Container(
-              child: Text('LIVE TRADING'),
-            ),
-            Container(
-              child: ElevatedButton(
-                child: Text(
-                  'Buy',
-                  style: TextStyle(color: Colors.white),
-                ),
-                onPressed: () {},
-              ),
-            )
-          ]),
+      ),
     );
   }
 }
