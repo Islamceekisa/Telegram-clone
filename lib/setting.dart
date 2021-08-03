@@ -60,6 +60,23 @@ class _SettingState extends State<Setting> {
     "assets/images/Telegram Features.png",
   ];
 
+  Widget trailing(index) {
+    if (index == 4)
+      return Text("English", style: TextStyle(color: Colors.white));
+    else if (index == 5)
+      return Container(
+        width: 30,
+        height: 20,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Center(child: Text("15")),
+      );
+    else
+      return Container();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,7 +125,7 @@ class _SettingState extends State<Setting> {
               ),
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemCount: images1.length - 2,
+              itemCount: images.length,
               itemBuilder: (context, index) => Container(
                 color: Colors.grey[900],
                 child: ListTile(
@@ -116,9 +133,12 @@ class _SettingState extends State<Setting> {
                     Icons.arrow_forward_ios,
                     color: Colors.grey[300],
                   ),
-                  title: Text(names[index]),
+                  title: Text(
+                    names[index],
+                    style: TextStyle(color: Colors.white),
+                  ),
                   leading: Image.asset(
-                    images1[index],
+                    images[index],
                     width: 20,
                     height: 20,
                   ),
@@ -147,7 +167,16 @@ class _SettingState extends State<Setting> {
                     Icons.arrow_forward_ios,
                     color: Colors.grey[300],
                   ),
-                  title: Text(names1[index]),
+                  title: Row(
+                    children: [
+                      Text(
+                        names1[index],
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Spacer(),
+                      trailing(index),
+                    ],
+                  ),
                   leading: Image.asset(
                     images1[index],
                     width: 20,
@@ -178,7 +207,10 @@ class _SettingState extends State<Setting> {
                     Icons.arrow_forward_ios,
                     color: Colors.grey[300],
                   ),
-                  title: Text(names2[index]),
+                  title: Text(
+                    names2[index],
+                    style: TextStyle(color: Colors.white),
+                  ),
                   leading: Image.asset(
                     images2[index],
                     width: 20,
