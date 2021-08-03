@@ -9,6 +9,8 @@ class Setting extends StatefulWidget {
 }
 
 class _SettingState extends State<Setting> {
+  int _selectedIndex;
+
   List<String> names = [
     "Saved Message",
     "Recent Calls",
@@ -62,13 +64,15 @@ class _SettingState extends State<Setting> {
 
   Widget trailing(index) {
     if (index == 4)
-      return Text("English", style: TextStyle(color: Colors.white));
+      return Text("English",
+          style: TextStyle(
+              color: index == _selectedIndex ? Colors.red : Colors.white));
     else if (index == 5)
       return Container(
         width: 30,
         height: 20,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: index == _selectedIndex ? Colors.red : Colors.white,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Center(child: Text("15")),
@@ -165,13 +169,16 @@ class _SettingState extends State<Setting> {
                 child: ListTile(
                   trailing: Icon(
                     Icons.arrow_forward_ios,
-                    color: Colors.grey[300],
+                    color: index == _selectedIndex ? Colors.red : Colors.white,
                   ),
                   title: Row(
                     children: [
                       Text(
                         names1[index],
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(
+                            color: index == _selectedIndex
+                                ? Colors.red
+                                : Colors.white),
                       ),
                       Spacer(),
                       trailing(index),
@@ -182,6 +189,15 @@ class _SettingState extends State<Setting> {
                     width: 20,
                     height: 20,
                   ),
+                  onTap: () {
+                    setState(() {
+                      if (_selectedIndex == index) {
+                        _selectedIndex = -1;
+                      } else {
+                        _selectedIndex = index;
+                      }
+                    });
+                  },
                 ),
               ),
             ),
