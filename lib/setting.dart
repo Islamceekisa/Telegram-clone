@@ -21,6 +21,23 @@ class _SettingState extends State<Setting> {
     // "Language",
     // "stickers",
   ];
+  List<String> names1 = [
+    // "Saved Message",
+    // "Recent Calls",
+    // "Devices",
+    // "Chat Folders",
+    "Notifications and Sounds",
+    "Privacy and Security",
+    "Data and Storage",
+    "Appearance",
+    "Language",
+    "stickers",
+  ];
+  List<String> names2 = [
+    "Ask a Question",
+    "Telegram FAQ",
+    "Telegram Features",
+  ];
 
   List<String> images = [
     "assets/images/saved message.jpg",
@@ -30,12 +47,17 @@ class _SettingState extends State<Setting> {
   ];
 
   List<String> images1 = [
-    "assets/images/saved message.jpg",
-    "assets/images/recend.png",
-    "assets/images/devices.png",
+    "assets/images/notifications.png",
+    "assets/images/Privacy and Security.png",
+    "assets/images/Data and Storage.png",
     "assets/images/folder.png",
-    "assets/images/devices.png",
-    "assets/images/folder.png",
+    "assets/images/Language.png",
+    "assets/images/stickers.png",
+  ];
+  List<String> images2 = [
+    "assets/images/Ask a Question.png",
+    "assets/images/Telegram FAQ.png",
+    "assets/images/Telegram Features.png",
   ];
 
   @override
@@ -106,7 +128,15 @@ class _SettingState extends State<Setting> {
           ),
           SizedBox(height: 5),
           Expanded(
-            child: ListView.builder(
+            child: ListView.separated(
+              separatorBuilder: (context, index) => Padding(
+                padding: EdgeInsets.only(left: 50),
+                child: Divider(
+                  height: 0,
+                  thickness: 1,
+                  color: Colors.white,
+                ),
+              ),
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               itemCount: images1.length,
@@ -117,9 +147,40 @@ class _SettingState extends State<Setting> {
                     Icons.arrow_forward_ios,
                     color: Colors.grey[300],
                   ),
-                  title: Text(names[index]),
+                  title: Text(names1[index]),
                   leading: Image.asset(
                     images1[index],
+                    width: 20,
+                    height: 20,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+          Expanded(
+            child: ListView.separated(
+              separatorBuilder: (context, index) => Padding(
+                padding: EdgeInsets.only(left: 50),
+                child: Divider(
+                  height: 0,
+                  thickness: 1,
+                  color: Colors.white,
+                ),
+              ),
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: images2.length,
+              itemBuilder: (context, index) => Container(
+                color: Colors.grey[900],
+                child: ListTile(
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.grey[300],
+                  ),
+                  title: Text(names2[index]),
+                  leading: Image.asset(
+                    images2[index],
                     width: 20,
                     height: 20,
                   ),
