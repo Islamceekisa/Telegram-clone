@@ -57,9 +57,12 @@ class _SettingState extends State<Setting> {
     "assets/images/stickers.png",
   ];
   List<String> images2 = [
-    "assets/images/Ask a Question.png",
+    "assets/images/ask_qa.png",
     "assets/images/Telegram FAQ.png",
     "assets/images/Telegram Features.png",
+  ];
+  List<String> images3 = [
+    "assets/images/isaa.jpg",
   ];
 
   Widget trailing(index) {
@@ -84,160 +87,258 @@ class _SettingState extends State<Setting> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: ListView(
-        shrinkWrap: true,
-        children: [
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              Container(
-                height: 300,
-                color: Colors.grey[900],
-              ),
-              Column(
-                children: [
-                  Container(
-                    width: 120,
-                    height: 120,
-                    child: CircleAvatar(),
-                  ),
-                  const SizedBox(height: 20),
+        backgroundColor: Colors.black,
+        body: NestedScrollView(
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return <Widget>[
+              SliverAppBar(
+                actions: [
                   Text(
-                    "+998 97 746 66 33",
-                    style: TextStyle(color: Colors.grey[600]),
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    "@ismaceekisa",
-                    style: TextStyle(color: Colors.grey[600]),
+                    'data',
+                    style: TextStyle(color: Colors.white),
                   )
                 ],
+                backgroundColor: Colors.grey[900],
+                expandedHeight: 300.0,
+                floating: false,
+                pinned: true,
+                flexibleSpace: FlexibleSpaceBar(
+                  centerTitle: true,
+                  background: Container(
+                    color: Colors.grey[900],
+                  ),
+                ),
+              ),
+            ];
+          },
+          body: ListView(
+            padding: EdgeInsets.only(top: 10),
+            children: [
+              Expanded(
+                child: ListView.separated(
+                  separatorBuilder: (context, index) => Padding(
+                    padding: EdgeInsets.only(left: 50),
+                    child: Divider(
+                      height: 0,
+                      thickness: 1,
+                      color: Colors.white,
+                    ),
+                  ),
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: images.length,
+                  itemBuilder: (context, index) => Container(
+                    color: Colors.grey[900],
+                    child: ListTile(
+                      trailing: Icon(
+                        Icons.arrow_forward_ios,
+                        color:
+                            index == _selectedIndex ? Colors.red : Colors.white,
+                      ),
+                      title: Row(
+                        children: [
+                          Text(
+                            names[index],
+                            style: TextStyle(
+                                color: index == _selectedIndex
+                                    ? Colors.red
+                                    : Colors.white),
+                          ),
+                          Spacer(),
+                          trailing(index),
+                        ],
+                      ),
+                      leading: Image.asset(
+                        images[index],
+                        width: 20,
+                        height: 20,
+                      ),
+                      onTap: () {
+                        setState(() {
+                          if (_selectedIndex == index) {
+                            _selectedIndex = -1;
+                          } else {
+                            _selectedIndex = index;
+                          }
+                        });
+                      },
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              Expanded(
+                child: ListView.separated(
+                  separatorBuilder: (context, index) => Padding(
+                    padding: EdgeInsets.only(left: 50),
+                    child: Divider(
+                      height: 0,
+                      thickness: 1,
+                      color: Colors.white,
+                    ),
+                  ),
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: images1.length,
+                  itemBuilder: (context, index) => Container(
+                    color: Colors.grey[900],
+                    child: ListTile(
+                      trailing: Icon(
+                        Icons.arrow_forward_ios,
+                        color:
+                            index == _selectedIndex ? Colors.red : Colors.white,
+                      ),
+                      title: Row(
+                        children: [
+                          Text(
+                            names1[index],
+                            style: TextStyle(
+                                color: index == _selectedIndex
+                                    ? Colors.red
+                                    : Colors.white),
+                          ),
+                          Spacer(),
+                          trailing(index),
+                        ],
+                      ),
+                      leading: Image.asset(
+                        images1[index],
+                        width: 20,
+                        height: 20,
+                      ),
+                      onTap: () {
+                        setState(() {
+                          if (_selectedIndex == index) {
+                            _selectedIndex = -1;
+                          } else {
+                            _selectedIndex = index;
+                          }
+                        });
+                      },
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              Expanded(
+                child: ListView.separated(
+                  separatorBuilder: (context, index) => Padding(
+                    padding: EdgeInsets.only(left: 50),
+                    child: Divider(
+                      height: 0,
+                      thickness: 1,
+                      color: Colors.white,
+                    ),
+                  ),
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: images2.length,
+                  itemBuilder: (context, index) => Container(
+                    color: Colors.grey[900],
+                    child: ListTile(
+                      trailing: Icon(
+                        Icons.arrow_forward_ios,
+                        color:
+                            index == _selectedIndex ? Colors.red : Colors.white,
+                      ),
+                      title: Row(
+                        children: [
+                          Text(
+                            names2[index],
+                            style: TextStyle(
+                                color: index == _selectedIndex
+                                    ? Colors.red
+                                    : Colors.white),
+                          ),
+                          Spacer(),
+                          trailing(index),
+                        ],
+                      ),
+                      leading: Image.asset(
+                        images2[index],
+                        width: 20,
+                        height: 20,
+                      ),
+                      onTap: () {
+                        setState(() {
+                          if (_selectedIndex == index) {
+                            _selectedIndex = -1;
+                          } else {
+                            _selectedIndex = index;
+                          }
+                        });
+                      },
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
-          const SizedBox(height: 10),
-          Expanded(
-            child: ListView.separated(
-              separatorBuilder: (context, index) => Padding(
-                padding: EdgeInsets.only(left: 50),
-                child: Divider(
-                  height: 0,
-                  thickness: 1,
-                  color: Colors.white,
-                ),
-              ),
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: images.length,
-              itemBuilder: (context, index) => Container(
-                color: Colors.grey[900],
-                child: ListTile(
-                  trailing: Icon(
-                    Icons.arrow_forward_ios,
-                    color: Colors.grey[300],
-                  ),
-                  title: Text(
-                    names[index],
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  leading: Image.asset(
-                    images[index],
-                    width: 20,
-                    height: 20,
-                  ),
-                ),
-              ),
-            ),
-          ),
-          SizedBox(height: 5),
-          Expanded(
-            child: ListView.separated(
-              separatorBuilder: (context, index) => Padding(
-                padding: EdgeInsets.only(left: 50),
-                child: Divider(
-                  height: 0,
-                  thickness: 1,
-                  color: Colors.white,
-                ),
-              ),
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: images1.length,
-              itemBuilder: (context, index) => Container(
-                color: Colors.grey[900],
-                child: ListTile(
-                  trailing: Icon(
-                    Icons.arrow_forward_ios,
-                    color: index == _selectedIndex ? Colors.red : Colors.white,
-                  ),
-                  title: Row(
-                    children: [
-                      Text(
-                        names1[index],
-                        style: TextStyle(
-                            color: index == _selectedIndex
-                                ? Colors.red
-                                : Colors.white),
-                      ),
-                      Spacer(),
-                      trailing(index),
-                    ],
-                  ),
-                  leading: Image.asset(
-                    images1[index],
-                    width: 20,
-                    height: 20,
-                  ),
-                  onTap: () {
-                    setState(() {
-                      if (_selectedIndex == index) {
-                        _selectedIndex = -1;
-                      } else {
-                        _selectedIndex = index;
-                      }
-                    });
-                  },
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          Expanded(
-            child: ListView.separated(
-              separatorBuilder: (context, index) => Padding(
-                padding: EdgeInsets.only(left: 50),
-                child: Divider(
-                  height: 0,
-                  thickness: 1,
-                  color: Colors.white,
-                ),
-              ),
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: images2.length,
-              itemBuilder: (context, index) => Container(
-                color: Colors.grey[900],
-                child: ListTile(
-                  trailing: Icon(
-                    Icons.arrow_forward_ios,
-                    color: Colors.grey[300],
-                  ),
-                  title: Text(
-                    names2[index],
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  leading: Image.asset(
-                    images2[index],
-                    width: 20,
-                    height: 20,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+        ));
   }
 }
+
+//   body: ListView.separated(
+//     separatorBuilder: (context, index) => Padding(
+//       padding: EdgeInsets.only(left: 50),
+//       child: Divider(
+//         height: 0,
+//         thickness: 1,
+//         color: Colors.white,
+//       ),
+//     ),
+//     shrinkWrap: true,
+//     physics: NeverScrollableScrollPhysics(),
+//     itemCount: images.length,
+//     itemBuilder: (context, index) => Container(
+//       color: Colors.grey[900],
+//       child: ListTile(
+//         trailing: Icon(
+//           Icons.arrow_forward_ios,
+//           color: Colors.grey[300],
+//         ),
+//         title: Text(
+//           names[index],
+//           style: TextStyle(color: Colors.white),
+//         ),
+//         leading: Image.asset(
+//           images[index],
+//           width: 20,
+//           height: 20,
+//         ),
+//       ),
+//     ),
+//   ),
+
+//   child: ListView.separated(
+//     separatorBuilder: (context, index) => Padding(
+//       padding: EdgeInsets.only(left: 50),
+//       child: Divider(
+//         height: 0,
+//         thickness: 1,
+//         color: Colors.white,
+//       ),
+//     ),
+//     shrinkWrap: true,
+//     physics: NeverScrollableScrollPhysics(),
+//     itemCount: images2.length,
+//     itemBuilder: (context, index) => Container(
+//       color: Colors.grey[900],
+//       child: ListTile(
+//         trailing: Icon(
+//           Icons.arrow_forward_ios,
+//           color: Colors.grey[300],
+//         ),
+//         title: Text(
+//           names2[index],
+//           style: TextStyle(color: Colors.white),
+//         ),
+//         leading: Image.asset(
+//           images2[index],
+//           width: 20,
+//           height: 20,
+//         ),
+//       ),
+//     ),
+//   ),
+// );

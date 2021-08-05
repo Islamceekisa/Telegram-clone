@@ -21,8 +21,8 @@ class _MyAppState extends State<MyApp> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
   static const List<Widget> _widgetOptions = <Widget>[
     Contacts(),
-    Setting(),
     Profile(),
+    Setting(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -43,25 +43,25 @@ class _MyAppState extends State<MyApp> {
                   Colors.grey[800], // bosmaganda avto chiqib turadgan rangi
               hoverColor: Colors.grey[700], // tab button hover color
               haptic: true, // haptic feedback
-              tabBorderRadius: 15,
+
               // yon radiusi
-              tabActiveBorder: Border.all(
-                  color: Colors.black, width: 1), // tab button border
-              tabBorder:
-                  Border.all(color: Colors.grey, width: 1), // tab button border
-              tabShadow: [
-                BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 8)
-              ], // tab button shadow
-              curve: Curves.easeOutExpo, // tab animation curves
-              duration: Duration(milliseconds: 900), // tab animation duration
-              gap: 8, // the tab button gap between icon and text
-              color: Colors.grey[800], // unselected icon color
-              activeColor: Colors.purple, // selected icon and text color
+              // tabActiveBorder: Border.all(
+              //     color: Colors.black, width: 1), // tab button border
+              // tabBorder:
+              //     Border.all(color: Colors.grey, width: 1), // tab button border
+              // tabShadow: [
+              //   BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 8)
+              // ], // tab button shadow
+              // curve: Curves.easeOutExpo, // tab animation curves
+              // duration: Duration(milliseconds: 900), // tab animation duration
+              // gap: 8, // the tab button gap between icon and text
+              // color: Colors.grey[800], // unselected icon color
+              activeColor: Colors.teal, // selected icon and text color
               iconSize: 24, // tab button icon size
-              tabBackgroundColor: Colors.purple
-                  .withOpacity(0.1), // selected tab background color
+              tabBackgroundColor:
+                  Colors.teal.withOpacity(0.1), // selected tab background color
               padding: EdgeInsets.symmetric(
-                  horizontal: 20, vertical: 5), // navigation bar padding
+                  horizontal: 20, vertical: 9), // navigation bar padding
               tabs: [
                 GButton(
                   // pasdig button   iconka bn nomini yozlgan
@@ -69,12 +69,12 @@ class _MyAppState extends State<MyApp> {
                   text: 'Contacts',
                 ),
                 GButton(
-                  icon: Icons.settings,
-                  text: 'Setting',
-                ),
-                GButton(
                   icon: Icons.people,
                   text: 'Profile',
+                ),
+                GButton(
+                  icon: Icons.settings,
+                  text: 'Setting',
                 )
               ],
               selectedIndex: _selectedIndex,
