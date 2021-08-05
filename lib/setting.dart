@@ -186,8 +186,9 @@ class _SettingState extends State<Setting> {
                     child: ListTile(
                       trailing: Icon(
                         Icons.arrow_forward_ios,
-                        color:
-                            index == selectedIndex ? Colors.red : Colors.white,
+                        color: index == selectedIndex
+                            ? Colors.yellow
+                            : Colors.white,
                       ),
                       title: Row(
                         children: [
