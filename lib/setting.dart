@@ -9,7 +9,7 @@ class Setting extends StatefulWidget {
 }
 
 class _SettingState extends State<Setting> {
-  int _selectedIndex;
+  int selectedIndex;
 
   List<String> names = [
     "Saved Message",
@@ -69,13 +69,13 @@ class _SettingState extends State<Setting> {
     if (index == 4)
       return Text("English",
           style: TextStyle(
-              color: index == _selectedIndex ? Colors.red : Colors.white));
+              color: index == selectedIndex ? Colors.red : Colors.white));
     else if (index == 5)
       return Container(
         width: 30,
         height: 20,
         decoration: BoxDecoration(
-          color: index == _selectedIndex ? Colors.red : Colors.white,
+          color: index == selectedIndex ? Colors.red : Colors.white,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Center(child: Text("15")),
@@ -133,14 +133,14 @@ class _SettingState extends State<Setting> {
                       trailing: Icon(
                         Icons.arrow_forward_ios,
                         color:
-                            index == _selectedIndex ? Colors.red : Colors.white,
+                            index == selectedIndex ? Colors.red : Colors.white,
                       ),
                       title: Row(
                         children: [
                           Text(
                             names[index],
                             style: TextStyle(
-                                color: index == _selectedIndex
+                                color: index == selectedIndex
                                     ? Colors.red
                                     : Colors.white),
                           ),
@@ -155,10 +155,10 @@ class _SettingState extends State<Setting> {
                       ),
                       onTap: () {
                         setState(() {
-                          if (_selectedIndex == index) {
-                            _selectedIndex = -1;
+                          if (selectedIndex == index) {
+                            selectedIndex = -1;
                           } else {
-                            _selectedIndex = index;
+                            selectedIndex = index;
                           }
                         });
                       },
@@ -186,14 +186,14 @@ class _SettingState extends State<Setting> {
                       trailing: Icon(
                         Icons.arrow_forward_ios,
                         color:
-                            index == _selectedIndex ? Colors.red : Colors.white,
+                            index == selectedIndex ? Colors.red : Colors.white,
                       ),
                       title: Row(
                         children: [
                           Text(
                             names1[index],
                             style: TextStyle(
-                                color: index == _selectedIndex
+                                color: index == selectedIndex
                                     ? Colors.red
                                     : Colors.white),
                           ),
@@ -208,10 +208,10 @@ class _SettingState extends State<Setting> {
                       ),
                       onTap: () {
                         setState(() {
-                          if (_selectedIndex == index) {
-                            _selectedIndex = -1;
+                          if (selectedIndex == index) {
+                            selectedIndex = -1;
                           } else {
-                            _selectedIndex = index;
+                            selectedIndex = index;
                           }
                         });
                       },
@@ -239,14 +239,14 @@ class _SettingState extends State<Setting> {
                       trailing: Icon(
                         Icons.arrow_forward_ios,
                         color:
-                            index == _selectedIndex ? Colors.red : Colors.white,
+                            index == selectedIndex ? Colors.red : Colors.white,
                       ),
                       title: Row(
                         children: [
                           Text(
                             names2[index],
                             style: TextStyle(
-                                color: index == _selectedIndex
+                                color: index == selectedIndex
                                     ? Colors.red
                                     : Colors.white),
                           ),
@@ -261,10 +261,10 @@ class _SettingState extends State<Setting> {
                       ),
                       onTap: () {
                         setState(() {
-                          if (_selectedIndex == index) {
-                            _selectedIndex = -1;
+                          if (selectedIndex == index) {
+                            selectedIndex = -1;
                           } else {
-                            _selectedIndex = index;
+                            selectedIndex = index;
                           }
                         });
                       },
