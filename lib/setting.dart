@@ -94,11 +94,11 @@ class _SettingState extends State<Setting> {
               SliverAppBar(
                 actions: [
                   Text(
-                    'data',
+                    'Edit',
                     style: TextStyle(color: Colors.white),
                   )
                 ],
-                backgroundColor: Colors.grey[900],
+                backgroundColor: Colors.teal[900],
                 expandedHeight: 300.0,
                 floating: false,
                 pinned: true,

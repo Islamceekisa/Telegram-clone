@@ -55,7 +55,7 @@ class _MyAppState extends State<MyApp> {
               // curve: Curves.easeOutExpo, // tab animation curves
               // duration: Duration(milliseconds: 900), // tab animation duration
               // gap: 8, // the tab button gap between icon and text
-              // color: Colors.grey[800], // unselected icon color
+              // color: Colors.grey[800], // unselected icon color+-+
               activeColor: Colors.teal, // selected icon and text color
               iconSize: 24, // tab button icon size
               tabBackgroundColor:
