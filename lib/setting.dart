@@ -304,6 +304,7 @@ class _SettingState extends State<Setting> {
 //           names[index],
 //           style: TextStyle(color: Colors.white),
 //         ),
+
 //         leading: Image.asset(
 //           images[index],
 //           width: 20,
