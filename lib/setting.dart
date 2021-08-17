@@ -105,6 +105,7 @@ class _SettingState extends State<Setting> {
                 flexibleSpace: FlexibleSpaceBar(
                   centerTitle: true,
                   background: Container(
+                    child: Image.asset('assets/images/isaa.jpg'),
                     color: Colors.grey[900],
                   ),
                 ),
