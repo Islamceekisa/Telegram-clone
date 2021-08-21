@@ -93,16 +93,21 @@ class _SettingState extends State<Setting> {
             return <Widget>[
               SliverAppBar(
                 actions: [
-                  Text(
-                    'Edit',
-                    style: TextStyle(color: Colors.white),
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Text(
+                      'Edit',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   )
                 ],
                 backgroundColor: Colors.teal[900],
                 expandedHeight: 300.0,
-                floating: false,
-                pinned: true,
+                floating: true,
+                pinned: false,
+                snap: false,
                 flexibleSpace: FlexibleSpaceBar(
+                  title: Text('islamceek.isa'),
                   centerTitle: true,
                   background: Container(
                     child: Image.asset('assets/images/isaa.jpg'),
