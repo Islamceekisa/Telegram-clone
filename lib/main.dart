@@ -1,4 +1,5 @@
 import 'package:apps/Contacts.dart';
+import 'package:apps/payment.dart';
 import 'package:apps/profile.dart';
 import 'package:apps/setting.dart';
 // profil popkasn ulash
@@ -17,12 +18,12 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
-  static const List<Widget> _widgetOptions = <Widget>[
+
+  static List<Widget> _widgetOptions = <Widget>[
     Contacts(),
     Profile(),
     Setting(),
+    Payment(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,7 @@ class _MyAppState extends State<MyApp> {
         theme: ThemeData(primaryColor: Colors.teal),
         // rang berilmagnda polni shu rangi chiqazib beradi
         home: SafeArea(
+          top: false,
           child: Scaffold(
             body: _widgetOptions.elementAt(_selectedIndex),
             // selectedIndex-- elementlan bosganda ozgaradgan qlad
@@ -59,9 +61,12 @@ class _MyAppState extends State<MyApp> {
               activeColor: Colors.teal, // selected icon and text color
               iconSize: 24, // tab button icon size
               tabBackgroundColor:
-                  Colors.teal.withOpacity(0.1), // selected tab background color
+                  Colors.teal.withOpacity(0.3), // selected tab background color
               padding: EdgeInsets.symmetric(
                   horizontal: 20, vertical: 9), // navigation bar padding
+              backgroundColor: Colors.teal.withAlpha(55),
+              color: Colors.teal,
+              tabMargin: EdgeInsets.symmetric(vertical: 5),
               tabs: [
                 GButton(
                   // pasdig button   iconka bn nomini yozlgan
@@ -75,6 +80,10 @@ class _MyAppState extends State<MyApp> {
                 GButton(
                   icon: Icons.settings,
                   text: 'Setting',
+                ),
+                GButton(
+                  icon: Icons.payment,
+                  text: 'Payment',
                 )
               ],
               selectedIndex: _selectedIndex,
