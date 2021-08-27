@@ -50,12 +50,20 @@ class Payment extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.grey[850],
-                    ),
-                    height: 70,
+                  child: Row(
+                    children: [
+                      Container(
+                        child: Text(
+                          "pul o'tkazosh",
+                          style: TextStyle(fontSize: 14, color: Colors.white),
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.grey[850],
+                        ),
+                        height: 70,
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(width: 20),

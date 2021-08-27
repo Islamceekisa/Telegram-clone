@@ -64,6 +64,13 @@ class _SettingState extends State<Setting> {
   List<String> images3 = [
     "assets/images/isaa.jpg",
   ];
+  Widget get actionsAction => Padding(
+        padding: const EdgeInsets.all(15),
+        child: Text(
+          'Edit',
+          style: TextStyle(color: Colors.white),
+        ),
+      );
 
   Widget trailing(index) {
     if (index == 4)
@@ -92,22 +99,16 @@ class _SettingState extends State<Setting> {
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return <Widget>[
               SliverAppBar(
-                actions: [
-                  Padding(
-                    padding: const EdgeInsets.all(15),
-                    child: Text(
-                      'Edit',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  )
-                ],
                 backgroundColor: Colors.teal[900],
                 expandedHeight: 300.0,
                 floating: true,
                 pinned: false,
                 snap: false,
                 flexibleSpace: FlexibleSpaceBar(
-                  title: Text('islamceek.isa'),
+                  title: Text(
+                    'islamceek.isa',
+                    style: TextStyle(color: Colors.amberAccent),
+                  ),
                   centerTitle: true,
                   background: Container(
                     child: Image.asset('assets/images/isaa.jpg'),
